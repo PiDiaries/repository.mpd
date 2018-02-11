@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addons>
+<addon id="repository.jsergio" name="jsergio repo" version="1.0.3" provider-name="jsergio">
+	<extension point="xbmc.addon.repository" name="jsergio repo">
+        <dir>
+            <info compressed="false">https://raw.github.com/ddurdle/repository.ddurdle/master/addons.xml</info>
+            <checksum>https://raw.github.com/ddurdle/repository.ddurdle/master/addons.xml.md5</checksum>
+            <datadir zip="true">http://dmdsoftware.net/repository.ddurdle/</datadir>
+        </dir>
+        <info compressed="false">https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml</info>
+        <checksum>https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml.md5</checksum>
+        <datadir zip="true">https://raw.githubusercontent.com/jsergio123/zips/master/</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary>Repo for jsergio Add-ons</summary>
+		<description>Repo for jsergio Add-ons</description>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="script.module.python.koding.aio"
+   name="Python Koding AIO"
+   version="0.9.9.3.4"
+   provider-name="Total Revolution">
+  <requires>
+    <import addon="xbmc.python" version="2.1.0"/>
+    <import addon="script.module.urlresolver" version="1.2.0"/>
+    <import addon="script.module.requests" version="2.3.0"/>
+    <import addon="script.module.beautifulsoup" version="2.1.31"/>
+    <import addon="script.module.unidecode" version="0.4.16"/>
+  </requires>
+  <extension point="xbmc.python.module" library="lib" />
+  <extension point="xbmc.addon.metadata">
+    <platform>all</platform>
+    <summary lang="en">Python Koding All In One</summary>
+    <description lang="en">Python Koding AIO contains a bunch of time saving modules that allows for quick and simple development.</description>
+    <disclaimer lang="en"></disclaimer>
+    <language></language>
+    <license>Creative Commons 4.0-NC-ND</license>
+    <forum>http://totalrevolution.tv/forum</forum>
+    <website>http://totalrevolution.tv</website>
+    <news>Updated forum and new github links</news>
+    <source>https://github.com/totalrevolution/python-koding/tree/master/script.module.python.koding.aio</source>
+  </extension>
+</addon>
+
+<addon id="repository.noobsandnerds" name="noobsandnerds Repository" version="2.3.5" provider-name="noobsandnerds">
+        <extension point="xbmc.addon.repository" name="noobsandnerds Repository">
+                <dir>
+                        <info compressed="false">https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/addons.xml</info>
+                        <checksum>https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/addons.xml.md5</checksum>
+                        <datadir zip="true">https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/</datadir>
+                </dir>
+                <dir>
+                        <info compressed="false">https://raw.githubusercontent.com/noobsandnerds/modules4all/master/zips/addons.xml</info>
+                        <checksum>https://raw.githubusercontent.com/noobsandnerds/modules4all/master/zips/addons.xml.md5</checksum>
+                        <datadir zip="true">https://raw.githubusercontent.com/noobsandnerds/modules4all/master/zips/</datadir>
+                </dir>
+                <dir>
+                        <info compressed="false">https://raw.githubusercontent.com/alfreddempsey3/repository.rage/master/zips/addons.xml</info>
+                        <checksum>https://raw.githubusercontent.com/alfreddempsey3/repository.rage/master/zips/addons.xml.md5</checksum>
+                        <datadir zip="true">https://raw.githubusercontent.com/alfreddempsey3/repository.rage/master/zips/</datadir>
+                </dir>
+                <dir>
+                        <info compressed="false">https://raw.githubusercontent.com/bromerzz/repository.bromcy/master/zips/addons.xml</info>
+                        <checksum>https://raw.githubusercontent.com/bromerzz/repository.bromcy/master/zips/addons.xml.md5</checksum>
+                        <datadir zip="true">https://raw.githubusercontent.com/bromerzz/repository.bromcy/master/zips/</datadir>
+                </dir>
+                <dir minversion="14.0.0">
+                        <info compressed="false">https://raw.githubusercontent.com/OpenELEQ/repository.elysium/master/elysium.xml</info>
+                        <checksum>https://raw.githubusercontent.com/OpenELEQ/repository.elysium/master/elysium.xml.md5</checksum>
+                        <datadir zip="true">https://raw.githubusercontent.com/OpenELEQ/repository.elysium/master/zips/</datadir>
+                </dir>
+                <dir>
+                        <info compressed="true">https://raw.githubusercontent.com/catchup4kodi/catchup4kodi/master/zips/addons.xml</info>
+                        <checksum>https://raw.githubusercontent.com/catchup4kodi/catchup4kodi/master/zips/addons.xml.md5</checksum>
+                        <datadir zip="true">https://raw.githubusercontent.com/catchup4kodi/catchup4kodi/master/zips/</datadir>
+                </dir>
+                <dir>
+                        <info compressed="false">https://gitlab.com/midaddon/repository.midraal/raw/master/zips/addons.xml</info>
+                        <checksum>https://gitlab.com/midaddon/repository.midraal/raw/master/zips/addons.xml.md5</checksum>
+                        <datadir zip="true">https://gitlab.com/midaddon/repository.midraal/raw/master/zips/</datadir>
+                </dir>
+                <dir minversion="14.0.0">
+                        <info compressed="false">https://github.com/OpenELEQ/repository.q/raw/master/openeleq-addons.xml</info>
+                        <checksum>https://github.com/OpenELEQ/repository.q/raw/master/openeleq-addons.xml.md5</checksum>
+                        <datadir zip="true">https://raw.github.com/OpenELEQ/repository.q/master/zips/</datadir>
+                </dir>
+                <dir minversion="16.0.0">
+                        <info compressed="false">https://github.com/OpenELEQ/repository.q.jarvis/raw/master/openeleq-addons.xml</info>
+                        <checksum>https://github.com/OpenELEQ/repository.q.jarvis/raw/master/openeleq-addons.xml.md5</checksum>
+                        <datadir zip="true">https://raw.github.com/OpenELEQ/repository.q.jarvis/master/zips/</datadir>
+                </dir>
+                <dir minversion="16.9.9">
+                        <info compressed="false">https://github.com/OpenELEQ/repository.q.krypton/raw/master/openeleq-addons.xml</info>
+                        <checksum>https://github.com/OpenELEQ/repository.q.krypton/raw/master/openeleq-addons.xml.md5</checksum>
+                        <datadir zip="true">https://raw.github.com/OpenELEQ/repository.q.krypton/master/zips/</datadir>
+                </dir>
+                <dir>
+                        <info compressed="false">https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml</info>
+                        <checksum>https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml.md5</checksum>
+                        <datadir zip="true">https://raw.githubusercontent.com/jsergio123/zips/master/</datadir>
+                </dir>
+                <info compressed="false">https://raw.githubusercontent.com/noobsandnerds/noobsandnerds/master/zips/addons.xml</info>
+                <checksum>https://raw.githubusercontent.com/noobsandnerds/noobsandnerds/master/zips/addons.xml.md5</checksum>
+                <datadir zip="true">https://raw.githubusercontent.com/noobsandnerds/noobsandnerds/master/zips/</datadir>
+        </extension>
+        <extension point="xbmc.addon.metadata">
+                <summary>Home of The Community Portal</summary>
+                <description>Visit www.noobsandnerds.com and become a part of our great family, you get to choose what The Community Portal holds!</description>
+                <platform>all</platform>
+        </extension>
+</addon>
+
+<addon id="repository.mpd" name="My Pi Diaries" version="0.0.0.1" provider-name="mpd">
+	<extension point="xbmc.addon.repository" name="My Pi Diaries">
+		<dir>
+			<info compressed="false">https://raw.githubusercontent.com/noobsandnerds/modules4all/master/zips/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/noobsandnerds/modules4all/master/zips/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/noobsandnerds/modules4all/master/zips/</datadir>
+		</dir>
+
+		<info compressed="false">https://raw.githubusercontent.com/pidiares/repository.mpd/zips/addons.xml</info>
+		<checksum>https://raw.githubusercontent.com/pidiares/repository.mpd/zips/addons.xml.md5</checksum>
+		<datadir zip="true">https://raw.githubusercontent.com/pidiares/repository.mpd/zips/</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Repo for My Pi Diaries</summary>
+		<description lang="en">Repo for My Pi Diaries Add-ons</description>
+		<genre>Gaming, Esports</genre>
+		<platform>all</platform>
+	</extension>
+</addon>
+
+<addon id="script.module.resolveurl" name="ResolveURL" version="5.0.06" provider-name="jsergio">
+	<requires>
+		<import addon="xbmc.python" version="2.1.0" />
+		<import addon="plugin.video.youtube" optional="true" />
+		<import addon="script.module.python.twitch" optional="true" />
+		<import addon="script.module.cryptopy" version="1.2.6" optional="true" />
+		<import addon="plugin.video.gdrive" optional="true" />
+	</requires>
+	<extension point="xbmc.python.module" library="lib" />
+	<extension point="xbmc.python.pluginsource" library="lib/default.py" />
+	<extension point="xbmc.addon.metadata">
+		<platform>all</platform>
+		<summary lang="en">Resolve common video host URL's to be playable in XBMC/Kodi.</summary>
+		<summary lang="es">Resolver enlaces a videos de sitios populares para poder reproducirlos en XBMC/Kodi.</summary>
+		<summary lang="hr">Prilagodi najčešće URL-ove video izvora kako bi radili u XBMC/Kodiju.</summary>
+		<description lang="en">Resolve common video host URL's to be playable in XBMC/Kodi, simplify addon development of video plugins requiring multi video hosts.</description>
+		<description lang="hr">Prilagodi najčešće URL-ove video izvora kako bi radili u XBMC/Kodiju, pojednostavnjuje razvoj priključaka za video dodatke koji zahtjevaju višestruke video izvore.</description>
+	</extension>
+</addon>
+
+<addon id="plugin.video.wow" name="[COLORorange][B]W[COLORwhite]atch [COLORorange]O[COLORwhite]verwatch[/B][/COLOR]" version="1.1" provider-name="MyPiDiaries">
+    <requires>
+        <import addon="repository.noobsandnerds" version="2.3.5" />
+        <import addon="xbmc.python" version="2.19.0" />
+        <import addon="script.module.nanscrapers" version="0.5.5" />
+        <import addon="script.module.python.koding.aio" version="0.9.6.6" />
+        <import addon="script.module.beautifulsoup" version="3.2.1" />
+        <import addon="script.module.requests" version="2.9.1" />
+        <import addon="script.module.addon.common" version="2.0.0" />
+        <import addon="script.module.xmltodict" version="0.9.0" />
+        <!--<import addon="script.module.web-pdb" version="1.0"/>-->
+        <import addon="script.module.resolveurl" />
+        <import addon="plugin.video.youtube" version="5.5.0x" />
+        <import addon="plugin.video.twitch" version="2.1.1" />
+
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="default.py">
+        <provides>audio video</provides>
+    </extension>
+    <extension point="xbmc.service" library="service.py" start="[login|startup]" />
+    <extension point="xbmc.addon.metadata">
+      <summary lang="en">Watch Overwatch</summary>
+      <summary lang="he"></summary>
+      <description lang="en">One stop shop for the best of Overwatch</description>
+      <description lang="he"></description>
+      <disclaimer lang="en">The author of this addon do not host any of the content which is found and have no affiliation with any of the content providers. This addon simply searches websites for content. Use at your own risk!</disclaimer>
+      <disclaimer lang="he">מחבר ההרחבה זה אינו מארח את התוכן שיתכן ויימצא ואין לו זיקה לאף אחד מספקי התוכן. הרחבה רק מחפשת תוכן שקיים באתרי אינטרנט. השימוש בהרחבה הוא על אחריותך בלבד!</disclaimer>
+      <platform>all</platform>
+        <website>https://pi-diaries.blogspot.co.uk/</website>
+        <video_guide></video_guide>
+    </extension>
+</addon>
+
+<addon id="script.module.nanscrapers" name="NaN Scrapers" version="0.5.50" provider-name="Team NaN">
+        <requires>
+                <import addon="xbmc.python" version="2.1.0"/>
+                <import addon="script.module.beautifulsoup" version="3.2.1"/>
+                <import addon="script.module.futures" version="2.2.0"/>
+                <import addon="script.module.requests"/>
+                <import addon="script.module.six"/>
+		    <import addon="script.module.resolveurl" version="5.0.00" optional="true"/>
+                <!--<import addon="script.mrknow.urlresolver" version="2016.10.30.2" optional="true"/>-->
+        </requires>
+        <extension point="xbmc.python.module" library="lib"/>
+        <extension point="xbmc.python.pluginsource" library="lib/default.py">
+                <provides>executable</provides>
+        </extension>
+        <extension point="xbmc.addon.metadata">
+                <platform>all</platform>
+                <summary lang="en">Scrape common video host for URL's to be playable in XBMC/Kodi.</summary>
+                <description lang="en">Scrape common video host for URL's to be playable in XBMC/Kodi, simplifying addon development of video plugins requiring multi video hosts.
+                </description>
+                <license>GPL v3</license>
+                <source>https://github.com/noobsandnerds/noobsandnerds/tree/master/script.module.nanscrapers</source>
+                <forum>http://www.noobsandnerds.com/support/showthread.php?tid=17212</forum>
+                <website>http://noobsandnerds.com</website>
+        </extension>
+</addon>
+</addons>
