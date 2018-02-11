@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="repository.mpd" name="My Pi Diaries" version="0.0.0.1" provider-name="mpd">
+<addon id="repository.mpd" name="My Pi Diaries" version="0.0.1" provider-name="MPD">
 	<extension point="xbmc.addon.repository" name="My Pi Diaries">
 		<dir>
-			<info compressed="false">https://raw.githubusercontent.com/noobsandnerds/modules4all/master/zips/addons.xml</info>
-			<checksum>https://raw.githubusercontent.com/noobsandnerds/modules4all/master/zips/addons.xml.md5</checksum>
-			<datadir zip="true">https://raw.githubusercontent.com/noobsandnerds/modules4all/master/zips/</datadir>
+			<info compressed="false">https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/</datadir>
 		</dir>
-		<info compressed="false">https://raw.githubusercontent.com/PiDiaries/repository.mpd/master/zips/addons.xml</info>
-		<checksum>https://raw.githubusercontent.com/PiDiaries/repository.mpd/master/zips/addons.xml.md5</checksum>
-		<datadir zip="true">https://raw.githubusercontent.com/PiDiaries/repository.mpd/master/zips/</datadir>
-	</extension>
-	<extension point="xbmc.addon.metadata">
-		<summary lang="en">Repo for My Pi Diaries</summary>
-		<description lang="en">Repo for My Pi Diaries Add-ons</description>
-		<genre>Gaming, Esports</genre>
-		<platform>all</platform>
-	</extension>
-</addon>
+		<dir>
+			<dir>
+				<info compressed="false">https://raw.githubusercontent.com/noobsandnerds/modules4all/master/zips/addons.xml</info>
+				<checksum>https://raw.githubusercontent.com/noobsandnerds/modules4all/master/zips/addons.xml.md5</checksum>
+				<datadir zip="true">https://raw.githubusercontent.com/noobsandnerds/modules4all/master/zips/</datadir>
+			</dir>
+			<dir>
+				<info compressed="false">https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml</info>
+				<checksum>https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml.md5</checksum>
+				<datadir zip="true">https://raw.githubusercontent.com/jsergio123/zips/master/</datadir>
+			</dir>
+			<info compressed="false">https://raw.githubusercontent.com/PiDiaries/repository.mpd/master/zips/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/PiDiaries/repository.mpd/master/zips/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/PiDiaries/repository.mpd/master/zips/</datadir>
+		</extension>
+		<extension point="xbmc.addon.metadata">
+			<summary lang="en">Repo for My Pi Diaries Add-ons</summary>
+			<description lang="en">Repo for My Pi Diaries Add-ons</description>
+			<genre>gaming,uk</genre>
+		</extension>
+	</addon>
