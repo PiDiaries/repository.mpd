@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="repository.mpd" name="My Pi Diaries" version="0.0.1" provider-name="MPD">
-	<extension point="xbmc.addon.repository" name="My Pi Diaries">
+<addon id="repository.mpd" name="mpd" version="0.0.1" provider-name="MPD">
+	<extension point="xbmc.addon.repository" name="mpd">
 		<dir>
 			<info compressed="false">https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/addons.xml</info>
 			<checksum>https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/addons.xml.md5</checksum>
