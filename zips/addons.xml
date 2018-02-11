@@ -120,9 +120,9 @@
 			<datadir zip="true">https://raw.githubusercontent.com/noobsandnerds/modules4all/master/zips/</datadir>
 		</dir>
 
-		<info compressed="false">https://raw.githubusercontent.com/pidiares/repository.mpd/zips/addons.xml</info>
-		<checksum>https://raw.githubusercontent.com/pidiares/repository.mpd/zips/addons.xml.md5</checksum>
-		<datadir zip="true">https://raw.githubusercontent.com/pidiares/repository.mpd/zips/</datadir>
+		<info compressed="false">https://raw.githubusercontent.com/PiDiaries/repository.mpd/master/zips/addons.xml</info>
+		<checksum>https://raw.githubusercontent.com/PiDiaries/repository.mpd/master/zips/addons.xml.md5</checksum>
+		<datadir zip="true">https://raw.githubusercontent.com/PiDiaries/repository.mpd/master/zips/</datadir>
 	</extension>
 	<extension point="xbmc.addon.metadata">
 		<summary lang="en">Repo for My Pi Diaries</summary>
