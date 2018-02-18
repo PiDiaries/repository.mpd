@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="plugin.video.wow" name="[COLORorange][B]W[COLORwhite]atch [COLORorange]O[COLORwhite]ver[COLORorange]w[COLORwhite]atch[/B][/COLOR]" version="18.2.18" provider-name="MyPiDiaries">
+<addon id="plugin.video.wow" name="[COLORorange][B]W[COLORwhite]atch [COLORorange]O[COLORwhite]ver[COLORorange]w[COLORwhite]atch[/B][/COLOR]" version="18.2.18.1" provider-name="MyPiDiaries">
     <requires>
-        <import addon="repository.noobsandnerds" version="2.3.5" />
         <import addon="xbmc.python" version="2.19.0" />
         <import addon="script.module.python.koding.aio" version="0.9.6.6" />
         <import addon="script.module.beautifulsoup" version="3.2.1" />
