@@ -9,7 +9,7 @@ from . import utils
 def _process_related_videos(provider, context, re_match):
     result = []
 
-    provider.set_content_type(context, kodion.constants.content_type.EPISODES)
+    provider.set_content_type(context, kodion.constants.content_type.VIDEOS)
 
     page_token = context.get_param('page_token', '')
     video_id = context.get_param('video_id', '')
@@ -23,7 +23,7 @@ def _process_related_videos(provider, context, re_match):
 
 
 def _process_recommendations(provider, context, re_match):
-    provider.set_content_type(context, kodion.constants.content_type.EPISODES)
+    provider.set_content_type(context, kodion.constants.content_type.VIDEOS)
     result = []
 
     page_token = context.get_param('page_token', '')
@@ -35,7 +35,7 @@ def _process_recommendations(provider, context, re_match):
 
 
 def _process_popular_right_now(provider, context, re_match):
-    provider.set_content_type(context, kodion.constants.content_type.EPISODES)
+    provider.set_content_type(context, kodion.constants.content_type.VIDEOS)
 
     result = []
 
@@ -68,7 +68,7 @@ def _process_browse_channels(provider, context, re_match):
 
 
 def _process_disliked_videos(provider, context, re_match):
-    provider.set_content_type(context, kodion.constants.content_type.EPISODES)
+    provider.set_content_type(context, kodion.constants.content_type.VIDEOS)
     result = []
 
     page_token = context.get_param('page_token', '')
@@ -83,7 +83,7 @@ def _process_live_events(provider, context, re_match):
     def _sort(x):
         return x.get_aired()
 
-    provider.set_content_type(context, kodion.constants.content_type.EPISODES)
+    provider.set_content_type(context, kodion.constants.content_type.VIDEOS)
 
     result = []
 
@@ -102,7 +102,7 @@ def _process_description_links(provider, context, re_match):
     addon_id = context.get_param('addon_id', '')
 
     def _extract_urls(_video_id):
-        provider.set_content_type(context, kodion.constants.content_type.EPISODES)
+        provider.set_content_type(context, kodion.constants.content_type.VIDEOS)
 
         result = []
 
@@ -228,7 +228,7 @@ def _process_description_links(provider, context, re_match):
 
 
 def _process_saved_playlists_tv(provider, context, re_match):
-    provider.set_content_type(context, kodion.constants.content_type.VIDEOS)
+    provider.set_content_type(context, kodion.constants.content_type.FILES)
 
     result = []
     next_page_token = context.get_param('next_page_token', '')
@@ -240,19 +240,31 @@ def _process_saved_playlists_tv(provider, context, re_match):
 
 
 def _process_watch_history_tv(provider, context, re_match):
-    provider.set_content_type(context, kodion.constants.content_type.EPISODES)
+    provider.set_content_type(context, kodion.constants.content_type.VIDEOS)
 
     result = []
     next_page_token = context.get_param('next_page_token', '')
     offset = int(context.get_param('offset', 0))
     json_data = provider.get_client(context).get_watch_history(page_token=next_page_token, offset=offset)
-    result.extend(tv.watch_history_to_items(provider, context, json_data))
+    result.extend(tv.tv_videos_to_items(provider, context, json_data))
+
+    return result
+
+
+def _process_purchases_tv(provider, context, re_match):
+    provider.set_content_type(context, kodion.constants.content_type.VIDEOS)
+
+    result = []
+    next_page_token = context.get_param('next_page_token', '')
+    offset = int(context.get_param('offset', 0))
+    json_data = provider.get_client(context).get_purchases(page_token=next_page_token, offset=offset)
+    result.extend(tv.tv_videos_to_items(provider, context, json_data))
 
     return result
 
 
 def _process_new_uploaded_videos_tv(provider, context, re_match):
-    provider.set_content_type(context, kodion.constants.content_type.EPISODES)
+    provider.set_content_type(context, kodion.constants.content_type.VIDEOS)
 
     result = []
     next_page_token = context.get_param('next_page_token', '')
@@ -264,7 +276,7 @@ def _process_new_uploaded_videos_tv(provider, context, re_match):
 
 
 def _process_new_uploaded_videos_tv_filtered(provider, context, re_match):
-    provider.set_content_type(context, kodion.constants.content_type.EPISODES)
+    provider.set_content_type(context, kodion.constants.content_type.VIDEOS)
 
     result = []
     next_page_token = context.get_param('next_page_token', '')
@@ -299,6 +311,8 @@ def process(category, provider, context, re_match):
         return _process_new_uploaded_videos_tv_filtered(provider, context, re_match)
     elif category == 'saved_playlists':
         return _process_saved_playlists_tv(provider, context, re_match)
+    elif category == 'purchases':
+        return _process_purchases_tv(provider, context, re_match)
     elif category == 'disliked_videos':
         return _process_disliked_videos(provider, context, re_match)
     elif category == 'live':

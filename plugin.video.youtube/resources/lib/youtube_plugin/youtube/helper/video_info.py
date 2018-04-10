@@ -576,7 +576,7 @@ class VideoInfo(object):
             cipher = Cipher(self._context, javascript_url=js)
 
         http_params['sts'] = player_config.get('sts', '')
-
+        http_params['t'] = player_args.get('t', '')
         http_params['c'] = player_args.get('c', 'WEB')
         http_params['cver'] = player_args.get('cver', '1.20170712')
         http_params['cplayer'] = player_args.get('cplayer', 'UNIPLAYER')
@@ -599,29 +599,32 @@ class VideoInfo(object):
                 break
 
         stream_list = []
+        is_live = params.get('live_playback', '0') == '1'
 
         meta_info = {'video': {},
                      'channel': {},
                      'images': {},
                      'subtitles': []}
         meta_info['video']['id'] = params.get('vid', params.get('video_id', ''))
-        meta_info['video']['title'] = params.get('title', '')
-        meta_info['channel']['author'] = params.get('author', '')
+        meta_info['video']['title'] = player_args.get('title', params.get('title', ''))
+        meta_info['channel']['author'] = player_args.get('author', params.get('author', ''))
         try:
-            meta_info['video']['title'] = meta_info['video']['title'].decode('utf-8')
-            meta_info['channel']['author'] = meta_info['channel']['author'].decode('utf-8')
+            meta_info['video']['title'] = meta_info['video']['title'].encode('utf-8', 'ignore').decode('utf-8')
+            meta_info['channel']['author'] = meta_info['channel']['author'].encode('utf-8', 'ignore').decode('utf-8')
         except:
             pass
 
         meta_info['channel']['id'] = params.get('ucid', '')
         image_data_list = [
-            {'from': 'iurlhq', 'to': 'high'},
-            {'from': 'iurlmq', 'to': 'medium'},
-            {'from': 'iurlsd', 'to': 'standard'},
-            {'from': 'thumbnail_url', 'to': 'default'}]
+            {'from': 'iurlhq', 'to': 'high', 'image': 'hqdefault.jpg'},
+            {'from': 'iurlmq', 'to': 'medium', 'image': 'mqdefault.jpg'},
+            {'from': 'iurlsd', 'to': 'standard', 'image': 'sddefault.jpg'},
+            {'from': 'thumbnail_url', 'to': 'default', 'image': 'default.jpg'}]
         for image_data in image_data_list:
-            image_url = params.get(image_data['from'], '')
+            image_url = params.get(image_data['from'], 'https://i.ytimg.com/vi/{video_id}/{image}'.format(video_id=video_id, image=image_data['image']))
             if image_url:
+                if is_live:
+                    image_url = image_url.replace('.jpg', '_live.jpg')
                 meta_info['images'][image_data['to']] = image_url
 
         meta_info['subtitles'] = Subtitles(self._context, video_id, captions).get_subtitles()
@@ -651,15 +654,14 @@ class VideoInfo(object):
 
                 raise YouTubeException(reason)
 
-        if params.get('live_playback', '0') == '1':
+        if is_live:
             url = params.get('hlsvp', '')
             if url:
                 stream_list = self._load_manifest(url, video_id, meta_info=meta_info, curl_headers=curl_headers)
 
+        httpd_is_live = self._context.get_settings().use_dash_proxy() and is_httpd_live(port=self._context.get_settings().httpd_port())
         mpd_url = params.get('dashmpd', player_args.get('dashmpd'))
-        if not mpd_url and params.get('live_playback', '0') == '0' and \
-                self._context.get_settings().use_dash_proxy() and \
-                is_httpd_live(port=self._context.get_settings().httpd_port()):
+        if not mpd_url and not is_live and httpd_is_live:
             mpd_url = self.generate_mpd(video_id, params.get('adaptive_fmts', player_args.get('adaptive_fmts', '')), params.get('length_seconds', '0'), cipher)
         use_cipher_signature = 'True' == params.get('use_cipher_signature', None)
         if mpd_url:
@@ -676,10 +678,30 @@ class VideoInfo(object):
                     else:
                         raise YouTubeException('Cipher: Not Found')
             if mpd_sig_deciphered:
+                license_info = {'url': None, 'proxy': None, 'token': None}
+                pa_li_info = player_args.get('license_info', '').split(',')
+                if pa_li_info and not httpd_is_live:
+                    raise YouTubeException('Proxy is not running')
+                for li_info in pa_li_info:
+                    li_info = dict(urllib.parse.parse_qsl(li_info))
+                    if li_info.get('family') == 'widevine':
+                        license_info['url'] = li_info.get('url', None)
+                        if license_info['url']:
+                            self._context.log_debug('Found widevine license url: |%s|' % license_info['url'])
+                            li_ipaddress = self._context.get_settings().httpd_listen()
+                            if li_ipaddress == '0.0.0.0':
+                                li_ipaddress = '127.0.0.1'
+                            license_info['proxy'] = 'http://{ipaddress}:{port}/widevine'.format(ipaddress=li_ipaddress, port=self._context.get_settings().httpd_port())
+                            license_info['proxy'] += '||R{SSM}|'
+                            license_info['token'] = self._access_token
+                            break
+
                 video_stream = {'url': mpd_url,
                                 'meta': meta_info,
-                                'headers': curl_headers}
-                if params.get('live_playback', '0') == '1':
+                                'headers': curl_headers,
+                                'license_info': license_info}
+
+                if is_live:
                     video_stream['url'] += '&start_seq=$START_NUMBER$'
                     video_stream.update(self.FORMAT.get('9998'))
                 else:
@@ -759,6 +781,8 @@ class VideoInfo(object):
         if ipaddress == '0.0.0.0':
             ipaddress = '127.0.0.1'
         supported_mime_types = ['audio/mp4', 'video/mp4']
+        if 'webm' in self._context.inputstream_adaptive_capabilities():
+            supported_mime_types.extend(['video/webm', 'audio/webm'])
         fmts_list = adaptive_fmts.split(',')
         data = {}
         for item in fmts_list:

@@ -1,6 +1,5 @@
 __author__ = 'bromix'
 
-import xbmc
 import xbmcgui
 import xbmcplugin
 
@@ -56,13 +55,6 @@ class XbmcRunner(AbstractProviderRunner):
             xbmcplugin.endOfDirectory(
                 self.handle, succeeded=True,
                 cacheToDisc=options.get(AbstractProvider.RESULT_CACHE_TO_DISC, True))
-
-            # set alternative view mode
-            if context.get_settings().is_override_view_enabled():
-                view_mode = context.get_ui().get_view_mode()
-                if view_mode is not None:
-                    context.log_debug('Override view mode to "%d"' % view_mode)
-                    xbmc.executebuiltin('Container.SetViewMode(%d)' % view_mode)
         else:
             # handle exception
             pass
@@ -85,9 +77,16 @@ class XbmcRunner(AbstractProviderRunner):
         """
 
     def _add_directory(self, context, directory_item, item_count=0):
-        item = xbmcgui.ListItem(label=directory_item.get_name(),
-                                iconImage=u'DefaultFolder.png',
-                                thumbnailImage=directory_item.get_image())
+        major_version = context.get_system_version().get_version()[0]
+        if major_version > 17:
+            item = xbmcgui.ListItem(label=directory_item.get_name(),
+                                    iconImage=u'DefaultFolder.png',
+                                    thumbnailImage=directory_item.get_image(),
+                                    offscreen=True)
+        else:
+            item = xbmcgui.ListItem(label=directory_item.get_name(),
+                                    iconImage=u'DefaultFolder.png',
+                                    thumbnailImage=directory_item.get_image())
 
         # only set fanart is enabled
 
@@ -114,9 +113,16 @@ class XbmcRunner(AbstractProviderRunner):
                                     totalItems=item_count)
 
     def _add_image(self, context, image_item, item_count):
-        item = xbmcgui.ListItem(label=image_item.get_name(),
-                                iconImage=u'DefaultPicture.png',
-                                thumbnailImage=image_item.get_image())
+        major_version = context.get_system_version().get_version()[0]
+        if major_version > 17:
+            item = xbmcgui.ListItem(label=image_item.get_name(),
+                                    iconImage=u'DefaultPicture.png',
+                                    thumbnailImage=image_item.get_image(),
+                                    offscreen=True)
+        else:
+            item = xbmcgui.ListItem(label=image_item.get_name(),
+                                    iconImage=u'DefaultPicture.png',
+                                    thumbnailImage=image_item.get_image())
 
         # only set fanart is enabled
         if image_item.get_fanart() and self.settings.show_fanart():

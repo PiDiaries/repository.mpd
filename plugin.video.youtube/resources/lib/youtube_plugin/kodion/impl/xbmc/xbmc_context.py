@@ -174,7 +174,6 @@ class XbmcContext(AbstractContext):
     def set_content_type(self, content_type):
         self.log_debug('Setting content-type: "%s" for "%s"' % (content_type, self.get_path()))
         xbmcplugin.setContent(self._plugin_handle, content_type)
-        self.get_ui().set_view_mode(content_type)
 
     def add_sort_method(self, *sort_methods):
         for sort_method in sort_methods:
@@ -240,6 +239,54 @@ class XbmcContext(AbstractContext):
             xbmc.log(error, xbmc.LOGDEBUG)
             return False
 
-    def send_notification(self, method):
-        self.log_debug('send_notification: |%s|' % method)
-        self.execute('NotifyAll(plugin.video.youtube,%s,{})' % method)
+    def send_notification(self, method, data):
+        data = json.dumps(data)
+        self.log_debug('send_notification: |%s| -> |%s|' % (method, data))
+        data = '\\"[\\"%s\\"]\\"' % urllib.parse.quote(data)
+        self.execute('NotifyAll(plugin.video.youtube,%s,%s)' % (method, data))
+
+    def use_inputstream_adaptive(self):
+        addon_enabled = self.addon_enabled('inputstream.adaptive')
+        if self._settings.use_dash() and not addon_enabled:
+            if self._ui.on_yes_no_input(self.get_name(), self.localize(30579)):
+                use_dash = self.set_addon_enabled('inputstream.adaptive')
+            else:
+                use_dash = False
+        elif self._settings.use_dash() and addon_enabled:
+            use_dash = True
+        else:
+            use_dash = False
+        return use_dash
+
+    def inputstream_adaptive_capabilities(self, capability=None):
+        # return a list inputstream.adaptive capabilities, if capability set return version required
+
+        use_dash = self.use_inputstream_adaptive()
+        if not use_dash and capability is not None:
+            return None
+        if not use_dash and capability is None:
+            return []
+
+        if capability is None:
+            try:
+                inputstream_version = xbmcaddon.Addon('inputstream.adaptive').getAddonInfo('version')
+            except RuntimeError:
+                return []
+
+            capabilities = []
+            ia_loose_version = utils.loose_version(inputstream_version)
+            if ia_loose_version >= utils.loose_version('2.0.12'):
+                capabilities.append('live')
+            if ia_loose_version >= utils.loose_version('2.2.12'):
+                capabilities.append('drm')
+            if ia_loose_version >= utils.loose_version('2.2.0'):
+                capabilities.append('webm')
+            return capabilities
+        elif capability == 'live':
+            return '2.0.12'
+        elif capability == 'drm':
+            return '2.2.12'
+        elif capability == 'webm':
+            return '2.2.0'
+        else:
+            return None
