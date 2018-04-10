@@ -1,27 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addons>
-<addon id="repository.mpd" name="mpd" version="18.04.10" provider-name="MPD">
+<addon id="script.module.universalscrapers" name="Universal Scrapers" version="1.0.5" provider-name="Team Universal">
+    <requires>
+        <import addon="xbmc.python" version="2.1.0"/>
+        <import addon="script.module.beautifulsoup" version="3.2.1"/>
+        <import addon="script.module.futures" version="2.2.0"/>
+        <import addon="script.module.requests"/>
+        <import addon="script.module.six"/>
+        <import addon="repository.universalscrapers"/>
+	<import addon="script.module.resolveurl" version="5.0.00" optional="true"/>
+
+                <!--<import addon="script.mrknow.urlresolver" version="2016.10.30.2" optional="true"/>-->
+    </requires>
+    <extension point="xbmc.python.module" library="lib"/>
+    <extension point="xbmc.python.pluginsource" library="lib/default.py">
+        <provides>executable</provides>
+    </extension>
+        <extension point="xbmc.addon.metadata">
+            <platform>all</platform>
+            <summary lang="en">Scrape common video host for URL's to be playable in XBMC/Kodi.</summary>
+            <description lang="en">Scrape common video host for URL's to be playable in XBMC/Kodi, simplifying addon development of video plugins requiring multi video hosts.
+            </description>
+            <license>GPL v3</license>
+            <source>https://</source>
+        </extension>
+</addon>
+
+<addon id="repository.mpd" name="mpd" version="18.04.10.1" provider-name="MPD">
 	<extension point="xbmc.addon.repository" name="mpd">
 		<dir>
 			<info compressed="false">https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/addons.xml</info>
 			<checksum>https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/addons.xml.md5</checksum>
 			<datadir zip="true">https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/</datadir>
 		</dir>
-			<dir>
-				<info compressed="false">https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml</info>
-				<checksum>https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml.md5</checksum>
-				<datadir zip="true">https://raw.githubusercontent.com/jsergio123/zips/master/</datadir>
-			</dir>
-			<info compressed="false">https://raw.githubusercontent.com/PiDiaries/repository.mpd/master/zips/addons.xml</info>
-			<checksum>https://raw.githubusercontent.com/PiDiaries/repository.mpd/master/zips/addons.xml.md5</checksum>
-			<datadir zip="true">https://raw.githubusercontent.com/PiDiaries/repository.mpd/master/zips/</datadir>
-		</extension>
-		<extension point="xbmc.addon.metadata">
-			<summary lang="en">Repo for My Pi Diaries Add-ons</summary>
-			<description lang="en">Repo for My Pi Diaries Add-ons</description>
-			<genre>gaming,uk</genre>
-		</extension>
-	</addon>
+		<dir>
+			<info compressed="false">https://raw.githubusercontent.com/teamuniversal/scrapers/master/_modules4all/zips/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/teamuniversal/scrapers/master/_modules4all/zips/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/teamuniversal/scrapers/master/_modules4all/zips/</datadir>
+			<hashes>false</hashes>
+		</dir>
+		<dir>
+			<info compressed="false">https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/jsergio123/zips/master/</datadir>
+		</dir>
+		<info compressed="false">https://raw.githubusercontent.com/PiDiaries/repository.mpd/master/zips/addons.xml</info>
+		<checksum>https://raw.githubusercontent.com/PiDiaries/repository.mpd/master/zips/addons.xml.md5</checksum>
+		<datadir zip="true">https://raw.githubusercontent.com/PiDiaries/repository.mpd/master/zips/</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Repo for My Pi Diaries Add-ons</summary>
+		<description lang="en">Repo for My Pi Diaries Add-ons</description>
+		<genre>gaming,uk</genre>
+	</extension>
+</addon>
 
 <addon id="script.module.resolveurl" name="ResolveURL" version="5.0.09" provider-name="jsergio">
 	<requires>
