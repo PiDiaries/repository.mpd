@@ -26,6 +26,54 @@
         </extension>
 </addon>
 
+<addon id='plugin.video.twitch' version='2.2.2' name='Twitch' provider-name='A Talented Community'>
+    <requires>
+        <import addon='xbmc.python' version='2.20.0'/>
+        <import addon="script.module.python.twitch" version="2.0.0"/>
+        <import addon="script.module.requests" version="2.9.1"/>
+    </requires>
+    <extension point='xbmc.python.pluginsource' library='resources/lib/routes.py'>
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.service" library="resources/lib/service.py" start="login"/>
+    <extension point='xbmc.addon.metadata'>
+        <platform>all</platform>
+        <news>
+2.2.2
+[add] refresh item to streams search when there are no results
+[upd] close chat on playback stopped [ccope]
+[upd] service start parameter to login
+
+2.2.1
+[add] allow Adaptive as default quality
+        </news>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart>fanart.png</fanart>
+        </assets>
+        <language></language>
+        <source>https://github.com/MrSprigster/Twitch-on-Kodi</source>
+        <license>GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007</license>
+        <forum>http://forum.kodi.tv/showthread.php?tid=134538</forum>
+        <summary lang='da_dk'>Twitch video plugin</summary>
+        <description lang='da_dk'>Se dine favorit gaming streams!</description>
+        <summary lang='de_de'>Twitch video plugin</summary>
+        <description lang='de_de'>Schaue die besten Gaming-Streams!</description>
+        <summary lang='en_gb'>Twitch video plugin</summary>
+        <description lang='en_gb'>Watch your favorite gaming streams!</description>
+        <summary lang='es_es'>Twitch video plugin</summary>
+        <description lang='es_es'>¡Mira los streams de tus juegos favoritos!</description>
+        <summary lang='fr_fr'>Twitch video plugin</summary>
+        <description lang='fr_fr'>Regardez les streams de vos jeux favoris !</description>
+        <summary lang='nl_nl'>Twitch video plugin</summary>
+        <description lang='nl_nl'>Bekijk je favoriete gaming-streams!</description>
+        <summary lang='nb_no'>Tillegg for Twitch</summary>
+        <description lang='nb_no'>Se dine favorittstrømmere!</description>
+        <summary lang='pl_pl'>Twitch video plugin</summary>
+        <description lang='pl_pl'>Oglądaj ulubione programy TwitchTV!</description>
+    </extension>
+</addon>
+
 <addon id="repository.mpd" name="mpd" version="18.04.10.1" provider-name="MPD">
 	<extension point="xbmc.addon.repository" name="mpd">
 		<dir>
@@ -55,7 +103,7 @@
 	</extension>
 </addon>
 
-<addon id="script.module.resolveurl" name="ResolveURL" version="5.0.09" provider-name="jsergio">
+<addon id="script.module.resolveurl" name="ResolveURL" version="5.0.10" provider-name="jsergio">
 	<requires>
 		<import addon="xbmc.python" version="2.1.0" />
 		<import addon="plugin.video.youtube" optional="true" />
@@ -75,7 +123,36 @@
 	</extension>
 </addon>
 
-<addon id="plugin.video.wow" name="[COLORorange][B]W[COLORwhite]atch [COLORorange]O[COLORwhite]ver[COLORorange]w[COLORwhite]atch[/B][/COLOR]" version="18.5.01" provider-name="MyPiDiaries">
+<addon id="script.module.python.twitch" name="python-twitch for Kodi" version="2.0.0" provider-name="A Talented Community">
+    <requires>
+        <import addon="xbmc.python" version="2.20.0"/>
+        <import addon="script.module.six" version="1.9.0"/>
+        <import addon="script.module.requests" version="2.9.1"/>
+    </requires>
+    <extension point="xbmc.python.module" library="resources/lib"/>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <news>
+[chg] refactor oauth for inclusion of helix
+[add] helix api
+[add] add usher.live_request and usher.video_request
+[add] MobileClient().revoke_token and MobileClient().get_app_access_token queries
+[add] Kodi logging
+[add] v5 users.users
+        </news>
+        <assets>
+            <icon>icon.png</icon>
+        </assets>
+        <platform>all</platform>
+        <summary lang="en">Module for interaction with the Twitch.tv API</summary>
+        <description lang="en">python-twitch for Kodi is module for interaction with the Twitch.tv API based on python-twitch by ingwinlu.</description>
+        <license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
+        <forum> </forum>
+        <source>https://github.com/MrSprigster/script.module.python.twitch</source>
+    </extension>
+</addon>
+
+<addon id="plugin.video.wow" name="[COLORorange][B]W[COLORwhite]atch [COLORorange]O[COLORwhite]ver[COLORorange]w[COLORwhite]atch[/B][/COLOR]" version="18.5.29" provider-name="MyPiDiaries">
     <requires>
         <import addon="xbmc.python" version="2.19.0" />
         <import addon="script.module.universalscrapers" version="0.5.5"/>
@@ -107,7 +184,7 @@
     </extension>
 </addon>
 
-<addon id="plugin.video.youtube" name="YouTube" version="6.0.0~beta9" provider-name="bromix">
+<addon id="plugin.video.youtube" name="YouTube" version="6.0.2" provider-name="bromix">
     <requires>
         <import addon="xbmc.python" version="2.20.0"/>
         <import addon="script.module.six"/>
@@ -121,40 +198,8 @@
     <extension point="xbmc.python.module" library="resources/lib/"/>
     <extension point="xbmc.addon.metadata">
         <news>
-[add] Python 3 compat.
-[add] Settings -&#62; Maintenance -&#62; Delete temporary files
-[add] Settings -&#62; General -&#62; Rate video after watching
-[add] Settings -&#62; API -&#62; Enable API configuration page
-        - when enabled, visit http:&#47;&#47;&#60;ipaddress&#62;:&#60;port&#62;&#47;api to configure API keys from a web browser
-        - port is configured in Settings - HTTP Server - Port
-[chg] Storing personal api keys in api_keys.json
-[chg] Storing login tokens in access_manager.json
-[add] youtube_registration module, register developer keys and use them by appending an addon_id=&#60;addon_id&#62; parameter to youtube add-on plugin urls
-[add] screensaver=true parameter to &#47;play route - no suggested videos, no post play events, don't ask for quality
-[add] play route for channel live streams
-        - plugin:&#47;&#47;plugin.video.youtube&#47;play&#47;?channel_id=UCLA_DiR1FfKNvjuUpBHmylQ&#38;live=1
-[add] Purchases
-        - requires Kodi 18
-        - requires inputstream.adaptive &#62;= 2.2.12
-        - if a purchase fails after 10 seconds
-            - provide a debug log
-            - set InputStream Adaptive -&#62; Settings -&#62; Stream selection -&#62; manual
-            - change video stream during playback to preferred working resolution
-        - huge thanks to peak3d
-[add] relevanceLanguage to search requests
-[fix] mpeg-dash proxy with multi-profiles
-[fix] search input, now works with Yatse
-[fix] Signature deciphering
-[fix] context menu after playback
-[fix] alternative player, do not append headers
-[fix] My Subscriptions (Filtered) channel matching
-[fix&#47;upd] post play events happen post play
-[fix&#47;upd] set title from metadata on play
-[chg] only automatically remove temp folder at start-up
-[upd] Dutch strings [MB1968]
-[upd] French strings [bubuleur]
-[upd] Greek strings [twilight0]
-[upd] Spanish strings [roliverosc]
+6.0.2
+[fix] incorrectly raised 'Proxy is not running' error
         </news>
         <assets>
             <icon>icon.png</icon>
@@ -194,7 +239,6 @@
         <website>https://www.youtube.com</website>
         <email>ytplugin at datanet dot ws</email>
         <source>https://github.com/jdf76/plugin.video.youtube</source>
-        <size>1776578</size>
     </extension>
 </addon>
 </addons>
