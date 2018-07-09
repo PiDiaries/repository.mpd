@@ -1,6 +1,6 @@
-# Addon Name: Watch Overwatch
-# Addon id: plugin.video.wow
-# Addon Provider: mpd
+# Addon Name: Jen
+# Addon id: plugin.video.jen
+# Addon Provider: Team Jen
 msgid ""
 msgstr ""
 "Project-Id-Version: Jen\n"
