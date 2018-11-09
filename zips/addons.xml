@@ -1,80 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addons>
-<addon id="script.module.universalscrapers" name="Universal Scrapers" version="1.0.5" provider-name="Team Universal">
-    <requires>
-        <import addon="xbmc.python" version="2.1.0"/>
-        <import addon="script.module.beautifulsoup" version="3.2.1"/>
-        <import addon="script.module.futures" version="2.2.0"/>
-        <import addon="script.module.requests"/>
-        <import addon="script.module.six"/>
-        <import addon="repository.universalscrapers"/>
-	<import addon="script.module.resolveurl" version="5.0.00" optional="true"/>
-
-                <!--<import addon="script.mrknow.urlresolver" version="2016.10.30.2" optional="true"/>-->
-    </requires>
-    <extension point="xbmc.python.module" library="lib"/>
-    <extension point="xbmc.python.pluginsource" library="lib/default.py">
-        <provides>executable</provides>
-    </extension>
-        <extension point="xbmc.addon.metadata">
-            <platform>all</platform>
-            <summary lang="en">Scrape common video host for URL's to be playable in XBMC/Kodi.</summary>
-            <description lang="en">Scrape common video host for URL's to be playable in XBMC/Kodi, simplifying addon development of video plugins requiring multi video hosts.
-            </description>
-            <license>GPL v3</license>
-            <source>https://</source>
-        </extension>
-</addon>
-
-<addon id='plugin.video.twitch' version='2.2.2' name='Twitch' provider-name='A Talented Community'>
-    <requires>
-        <import addon='xbmc.python' version='2.20.0'/>
-        <import addon="script.module.python.twitch" version="2.0.0"/>
-        <import addon="script.module.requests" version="2.9.1"/>
-    </requires>
-    <extension point='xbmc.python.pluginsource' library='resources/lib/routes.py'>
-        <provides>video</provides>
-    </extension>
-    <extension point="xbmc.service" library="resources/lib/service.py" start="login"/>
-    <extension point='xbmc.addon.metadata'>
-        <platform>all</platform>
-        <news>
-2.2.2
-[add] refresh item to streams search when there are no results
-[upd] close chat on playback stopped [ccope]
-[upd] service start parameter to login
-
-2.2.1
-[add] allow Adaptive as default quality
-        </news>
-        <assets>
-            <icon>icon.png</icon>
-            <fanart>fanart.png</fanart>
-        </assets>
-        <language></language>
-        <source>https://github.com/MrSprigster/Twitch-on-Kodi</source>
-        <license>GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007</license>
-        <forum>http://forum.kodi.tv/showthread.php?tid=134538</forum>
-        <summary lang='da_dk'>Twitch video plugin</summary>
-        <description lang='da_dk'>Se dine favorit gaming streams!</description>
-        <summary lang='de_de'>Twitch video plugin</summary>
-        <description lang='de_de'>Schaue die besten Gaming-Streams!</description>
-        <summary lang='en_gb'>Twitch video plugin</summary>
-        <description lang='en_gb'>Watch your favorite gaming streams!</description>
-        <summary lang='es_es'>Twitch video plugin</summary>
-        <description lang='es_es'>¡Mira los streams de tus juegos favoritos!</description>
-        <summary lang='fr_fr'>Twitch video plugin</summary>
-        <description lang='fr_fr'>Regardez les streams de vos jeux favoris !</description>
-        <summary lang='nl_nl'>Twitch video plugin</summary>
-        <description lang='nl_nl'>Bekijk je favoriete gaming-streams!</description>
-        <summary lang='nb_no'>Tillegg for Twitch</summary>
-        <description lang='nb_no'>Se dine favorittstrømmere!</description>
-        <summary lang='pl_pl'>Twitch video plugin</summary>
-        <description lang='pl_pl'>Oglądaj ulubione programy TwitchTV!</description>
-    </extension>
-</addon>
-
-<addon id="repository.mpd" name="mpd" version="18.06.4" provider-name="MPD">
+<addon id="repository.mpd" name="mpd" version="18.11.09" provider-name="MPD">
 	<extension point="xbmc.addon.repository" name="mpd">
 		<dir>
 			<info compressed="false">https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/addons.xml</info>
@@ -87,17 +13,8 @@
             <datadir zip="true">https://raw.githubusercontent.com/jenaddon/repository.jenrepo/master/zips/</datadir>
             <hashes>false</hashes>
         </dir>
-		<dir>
-			<info compressed="false">https://raw.githubusercontent.com/teamuniversal/scrapers/master/_modules4all/zips/addons.xml</info>
-			<checksum>https://raw.githubusercontent.com/teamuniversal/scrapers/master/_modules4all/zips/addons.xml.md5</checksum>
-			<datadir zip="true">https://raw.githubusercontent.com/teamuniversal/scrapers/master/_modules4all/zips/</datadir>
-			<hashes>false</hashes>
-		</dir>
-		<dir>
-			<info compressed="false">https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml</info>
-			<checksum>https://raw.githubusercontent.com/jsergio123/zips/master/addons.xml.md5</checksum>
-			<datadir zip="true">https://raw.githubusercontent.com/jsergio123/zips/master/</datadir>
-		</dir>
+
+
 		<info compressed="false">https://raw.githubusercontent.com/PiDiaries/repository.mpd/master/zips/addons.xml</info>
 		<checksum>https://raw.githubusercontent.com/PiDiaries/repository.mpd/master/zips/addons.xml.md5</checksum>
 		<datadir zip="true">https://raw.githubusercontent.com/PiDiaries/repository.mpd/master/zips/</datadir>
@@ -109,59 +26,10 @@
 	</extension>
 </addon>
 
-<addon id="script.module.resolveurl" name="ResolveURL" version="5.0.10" provider-name="jsergio">
-	<requires>
-		<import addon="xbmc.python" version="2.1.0" />
-		<import addon="plugin.video.youtube" optional="true" />
-		<import addon="script.module.python.twitch" optional="true" />
-		<import addon="script.module.cryptopy" version="1.2.6" optional="true" />
-		<import addon="plugin.video.gdrive" optional="true" />
-	</requires>
-	<extension point="xbmc.python.module" library="lib" />
-	<extension point="xbmc.python.pluginsource" library="lib/default.py" />
-	<extension point="xbmc.addon.metadata">
-		<platform>all</platform>
-		<summary lang="en">Resolve common video host URL's to be playable in XBMC/Kodi.</summary>
-		<summary lang="es">Resolver enlaces a videos de sitios populares para poder reproducirlos en XBMC/Kodi.</summary>
-		<summary lang="hr">Prilagodi najčešće URL-ove video izvora kako bi radili u XBMC/Kodiju.</summary>
-		<description lang="en">Resolve common video host URL's to be playable in XBMC/Kodi, simplify addon development of video plugins requiring multi video hosts.</description>
-		<description lang="hr">Prilagodi najčešće URL-ove video izvora kako bi radili u XBMC/Kodiju, pojednostavnjuje razvoj priključaka za video dodatke koji zahtjevaju višestruke video izvore.</description>
-	</extension>
-</addon>
-
-<addon id="script.module.python.twitch" name="python-twitch for Kodi" version="2.0.0" provider-name="A Talented Community">
-    <requires>
-        <import addon="xbmc.python" version="2.20.0"/>
-        <import addon="script.module.six" version="1.9.0"/>
-        <import addon="script.module.requests" version="2.9.1"/>
-    </requires>
-    <extension point="xbmc.python.module" library="resources/lib"/>
-    <extension point="xbmc.addon.metadata">
-        <platform>all</platform>
-        <news>
-[chg] refactor oauth for inclusion of helix
-[add] helix api
-[add] add usher.live_request and usher.video_request
-[add] MobileClient().revoke_token and MobileClient().get_app_access_token queries
-[add] Kodi logging
-[add] v5 users.users
-        </news>
-        <assets>
-            <icon>icon.png</icon>
-        </assets>
-        <platform>all</platform>
-        <summary lang="en">Module for interaction with the Twitch.tv API</summary>
-        <description lang="en">python-twitch for Kodi is module for interaction with the Twitch.tv API based on python-twitch by ingwinlu.</description>
-        <license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
-        <forum> </forum>
-        <source>https://github.com/MrSprigster/script.module.python.twitch</source>
-    </extension>
-</addon>
-
-<addon id="plugin.video.wow" name="[COLORorange][B]W[COLORwhite]atch [COLORorange]O[COLORwhite]ver[COLORorange]w[COLORwhite]atch[/B][/COLOR]" version="18.9.10" provider-name="MyPiDiaries">
+<addon id="plugin.video.wow" name="[COLORorange][B]W[COLORwhite]atch [COLORorange]O[COLORwhite]ver[COLORorange]w[COLORwhite]atch[/B][/COLOR]" version="18.11.09" provider-name="MyPiDiaries">
     <requires>
         <import addon="xbmc.python" version="2.19.0" />
-        <import addon="script.module.universalscrapers" version="0.5.5"/>
+        <!--<import addon="script.module.universalscrapers" version="0.5.5"/>-->
         <import addon="script.module.python.koding.aio" version="0.9.6.6" />
         <import addon="script.module.beautifulsoup" version="3.2.1" />
         <import addon="script.module.requests" version="2.9.1" />
@@ -169,7 +37,7 @@
         <import addon="script.module.xmltodict" version="0.9.0" />
         <!--<import addon="script.module.web-pdb" version="1.0"/>-->
         <import addon="script.module.resolveurl" />
-        <import addon="plugin.video.youtube" version="5.5.0x" />
+        <import addon="plugin.video.youtube" version="6.2.2" />
         <import addon="plugin.video.twitch" version="2.1.1" />
 
     </requires>
@@ -187,64 +55,6 @@
       <platform>all</platform>
         <website>https://pi-diaries.blogspot.co.uk/</website>
         <video_guide></video_guide>
-    </extension>
-</addon>
-
-<addon id="plugin.video.youtube" name="YouTube" version="6.0.2" provider-name="bromix">
-    <requires>
-        <import addon="xbmc.python" version="2.20.0"/>
-        <import addon="script.module.six"/>
-        <import addon="script.module.requests" version="2.12.4"/>
-        <import addon="script.module.inputstreamhelper" version="0.2.2" optional="true"/>
-    </requires>
-    <extension point="xbmc.python.pluginsource" library="resources/lib/default.py">
-        <provides>video</provides>
-    </extension>
-    <extension point="xbmc.service" library="resources/lib/startup.py" start="login"/>
-    <extension point="xbmc.python.module" library="resources/lib/"/>
-    <extension point="xbmc.addon.metadata">
-        <news>
-6.0.2
-[fix] incorrectly raised 'Proxy is not running' error
-        </news>
-        <assets>
-            <icon>icon.png</icon>
-            <fanart>fanart.jpg</fanart>
-        </assets>
-        <summary lang="en_gb">Plugin for YouTube</summary>
-        <description lang="en_gb">YouTube is one of the biggest video-sharing websites of the world.</description>
-        <disclaimer lang="en_gb">This plugin is not endorsed by Google</disclaimer>
-        <summary lang="he_il">תוסף עבור YouTube</summary>
-        <description lang="he_il">YouTube הוא אחד מאתרי שיתוף הווידאו הגדולים בעולם.</description>
-        <summary lang="de_de">Plugin für YouTube</summary>
-        <description lang="de_de">YouTube ist eines der größten Video-Sharing-Websites der Welt.</description>
-        <summary lang="pl_pl">Wtyczka YouTube</summary>
-        <description lang="pl_pl">YouTube jest jednym z największych na świecie serwisów udostępniania wideo.</description>
-        <summary lang="hu_hu">YouTube kiegészítő</summary>
-        <description lang="hu_hu">A YouTube világ egyik legnagyobb videómegosztó weboldala.</description>
-        <summary lang="es_es">Plugin para YouTube</summary>
-        <description lang="es_es">YouTube es uno de los mayores sitios web de intercambio de vídeos del mundo.</description>
-        <disclaimer lang="es_es">Este add-on no esta respaldado por Google</disclaimer>
-        <summary lang="ru_ru">Видеодополнение YouTube</summary>
-        <description lang="ru_ru">Данное дополнение позволяет находить и смотреть видео на всеми любимом сайте.</description>
-        <summary lang="fr_fr">Plugin pour YouTube</summary>
-        <description lang="fr_fr">YouTube est l'un des plus grands sites de partage vidéos du monde.</description>
-        <summary lang="zh_cn">YouTube附加元件</summary>
-        <description lang="zh_cn">「Youtube」是全世界最大的影片分享網站</description>
-        <summary lang="bg_bg">Добавка за YouTube</summary>
-        <description lang="bg_bg">YouTube е един от най-големите уеб сайтове за споделяне на видео в целия свят.</description>
-        <summary lang="el_gr">Πρόσθετο YouTube</summary>
-        <description lang="el_gr">Το YouTube είναι μία από τις μεγαλύτερες ιστοσελίδες διαμοιρασμού βίντεο στον κόσμο.</description>
-        <disclaimer lang="el_gr">Η παρούσα μικροεφαρμογή δεν έχει υϊοθετηθεί από την Google</disclaimer>
-        <summary lang="nb_no">Tillegg for YouTube</summary>
-        <description lang="nb_no">YouTube er en av verdens største nettsider for videodeling.</description>
-        <language></language>
-        <platform>all</platform>
-        <license>GNU GENERAL PUBLIC LICENSE. Version 2, June 1991</license>
-        <forum>https://forum.kodi.tv/showthread.php?tid=325740</forum>
-        <website>https://www.youtube.com</website>
-        <email>ytplugin at datanet dot ws</email>
-        <source>https://github.com/jdf76/plugin.video.youtube</source>
     </extension>
 </addon>
 </addons>
