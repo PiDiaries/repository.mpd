@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addons>
-<addon id="repository.mpd" name="mpd" version="18.11.09" provider-name="MPD">
+<addon id="repository.mpd" name="mpd" version="19.10.26" provider-name="MPD">
 	<extension point="xbmc.addon.repository" name="mpd">
 		<dir>
 			<info compressed="false">https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/addons.xml</info>
