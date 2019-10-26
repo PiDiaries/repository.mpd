@@ -26,7 +26,7 @@
 	</extension>
 </addon>
 
-<addon id="plugin.video.wow" name="[COLORorange][B]W[COLORwhite]atch [COLORorange]O[COLORwhite]ver[COLORorange]w[COLORwhite]atch[/B][/COLOR]" version="18.12.03" provider-name="MyPiDiaries">
+<addon id="plugin.video.wow" name="[COLORfffe9f2b][B]W[COLORwhite]atch [COLORfffe9f2b]O[COLORwhite]ver[COLORfffe9f2b]w[COLORwhite]atch[/B][/COLOR]" version="19.10.26" provider-name="MyPiDiaries">
     <requires>
         <import addon="xbmc.python" version="2.19.0" />
         <!--<import addon="script.module.universalscrapers" version="0.5.5"/>-->
