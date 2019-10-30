@@ -1,0 +1,6 @@
+[submodule "script.module.tulip"]
+	path = script.module.tulip
+	url = https://github.com/Twilight0/script.module.tulip.git
+[submodule "plugin.program.reddit_browser"]
+	path = plugin.program.reddit_browser
+	url = https://github.com/PiDiaries/plugin.program.reddit_browser.git
