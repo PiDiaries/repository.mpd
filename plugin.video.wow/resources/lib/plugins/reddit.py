@@ -1,8 +1,19 @@
 
 """
+    Copyright (C) 2019 MyPiDiaries
+
+
+    ----------------------------------------------------------------------------
+    "THE BEER-WARE LICENSE" (Revision 42):
+    @mypidiaries wrote this file.  As long as you retain this notice you can do 
+    whatever you want with this stuff.  If we meet some day, and you think this stuff is
+    worth it, you can buy him a beer in return.
+    ----------------------------------------------------------------------------
+
+
         <dir>
-            <title>Subreddit title</title>
-            <overwatch>r/subreddit</overwatch>
+            <title>Subreddit title | hot</title>
+            <reddit>subreddit</reddit>
         </dir>
 
 """
@@ -39,22 +50,22 @@ reddit = praw2.Reddit(client_id='nza3RQ0hwoEOZA',
 reg_items = ['vimeo','dailymotion','rutube','vid.ag','thevideobee','vidzi.tv','drive.google','streamable.com']
 unreg_items = ['v.redd.it','myspace','nfb.ca','thevideobee','dotsub','en.musicplayon.com','vkontakte.ru','veehd.com','snagfilms','liveleak.com','imdb.com','disclose.tv','videoweed.es','putlocker','vid.ag','vice.com']
 image_items = ['.png','.jpg','.gif']
+now = time.time()-60
 
 
-
-class OverWatch(Plugin):
-    name = "overwatch"
+class RedDit(Plugin):
+    name = "reddit"
     priority = 200
 
     def process_item(self, item_xml):
-        if "<overwatch>" in item_xml:
+        if "<reddit>" in item_xml:
             item = JenItem(item_xml)
             result_item = {
                 'label': item["title"],
                 'icon': item.get("thumbnail", addon_icon),
                 'fanart': item.get("fanart", addon_fanart),
-                'mode': "OverWatch",
-                'url': item.get("overwatch", ""),
+                'mode': "RedDit",
+                'url': item.get("reddit", ""),
                 'folder': True,
                 'imdb': "0",
                 'content': "files",
@@ -64,17 +75,18 @@ class OverWatch(Plugin):
                 'year': "0",
                 'context': get_context_items(item),
                 "summary": item.get("summary", None)
-            }
+                }
             result_item['fanart_smday'] = result_item["fanart"]
             return result_item
+            
 
     def clear_cache(self):
         dialog = xbmcgui.Dialog()
-        if dialog.yesno(xbmcaddon.Addon().getAddonInfo('name'), "Clear Overwatch Plugin Cache?"):
-            koding.Remove_Table("overwatch_com_plugin")
+        if dialog.yesno(xbmcaddon.Addon().getAddonInfo('name'), "Clear Reddit Plugin Cache?"):
+            koding.Remove_Table("reddit_com_plugin")
 
-@route(mode='OverWatch', args=["url"])
-def get_OverWatch(url):
+@route(mode='RedDit', args=["url"])
+def get_RedDit(url):
     url = url.replace('r/', '') 
     xml = fetch_from_db(url)
     if any(x in url for x in image_items):
@@ -324,18 +336,19 @@ def get_OverWatch(url):
 
     
           
+
 def save_to_db(item, url):
     if not item or not url:
         return False
     try:
         koding.reset_db()
         koding.Remove_From_Table(
-            "overwatch_com_plugin",
+            "reddit_com_plugin",
             {
                 "url": url
             })
 
-        koding.Add_To_Table("overwatch_com_plugin",
+        koding.Add_To_Table("reddit_com_plugin",
                             {
                                 "url": url,
                                 "item": base64.b64encode(item),
@@ -347,7 +360,7 @@ def save_to_db(item, url):
 
 def fetch_from_db(url):
     koding.reset_db()
-    docuh_plugin_spec = {
+    reddh_plugin_spec = {
         "columns": {
             "url": "TEXT",
             "item": "TEXT",
@@ -357,9 +370,9 @@ def fetch_from_db(url):
             "unique": "url"
         }
     }
-    koding.Create_Table("overwatch_com_plugin", docuh_plugin_spec)
+    koding.Create_Table("reddit_com_plugin", reddh_plugin_spec)
     match = koding.Get_From_Table(
-        "overwatch_com_plugin", {"url": url})
+        "reddit_com_plugin", {"url": url})
     if match:
         match = match[0]
         if not match["item"]:
