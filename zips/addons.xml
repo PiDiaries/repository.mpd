@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addons>
+<addon id="repository.mpd" name="mpd" version="20.03.26" provider-name="MPD">
+	<extension point="xbmc.addon.repository" name="mpd">
+		<dir>
+			<info compressed="false">https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/addons.xml</info>
+			<checksum>https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/addons.xml.md5</checksum>
+			<datadir zip="true">https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/</datadir>
+		</dir>
+		<dir>
+            <info compressed="false">https://raw.githubusercontent.com/jenaddon/repository.jenrepo/master/zips/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/jenaddon/repository.jenrepo/master/zips/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/jenaddon/repository.jenrepo/master/zips/</datadir>
+            <hashes>false</hashes>
+        </dir>
+
+        <dir>
+            <info compressed="false">https://raw.githubusercontent.com/Gujal00/smrzips/master/addons.xml</info>
+            <checksum>https://raw.githubusercontent.com/Gujal00/smrzips/master/addons.xml.md5</checksum>
+            <datadir zip="true">https://raw.githubusercontent.com/Gujal00/smrzips/master/zips/</datadir>
+        </dir>
+		<info compressed="false">https://raw.githubusercontent.com/PiDiaries/repository.mpd/master/zips/addons.xml</info>
+		<checksum>https://raw.githubusercontent.com/PiDiaries/repository.mpd/master/zips/addons.xml.md5</checksum>
+		<datadir zip="true">https://raw.githubusercontent.com/PiDiaries/repository.mpd/master/zips/</datadir>
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<summary lang="en">Repo for My Pi Diaries Add-ons</summary>
+		<description lang="en">Repo for My Pi Diaries Add-ons</description>
+		<genre>gaming,uk</genre>
+	</extension>
+</addon>
+
 <addon id="plugin.video.wow" name="[COLORfffe9f2b][B]W[COLORwhite]atch [COLORfffe9f2b]O[COLORwhite]ver[COLORfffe9f2b]w[COLORwhite]atch[/B][/COLOR]" version="20.03.09" provider-name="MyPiDiaries">
     <requires>
         <import addon="xbmc.python" version="2.19.0" />
@@ -30,78 +60,5 @@
         <website>https://pi-diaries.blogspot.co.uk/</website>
         <video_guide></video_guide>
     </extension>
-</addon>
-
-<addon id="plugin.video.twitch" version="2.5.1" name="Twitch" provider-name="A Talented Community">
-    <requires>
-        <import addon="xbmc.python" version="2.20.0"/>
-        <import addon="script.module.six" version="1.11.0"/>
-        <import addon="script.module.python.twitch" version="2.0.14"/>
-        <import addon="script.module.requests" version="2.9.1"/>
-    </requires>
-    <extension point="xbmc.python.pluginsource" library="resources/lib/addon_runner.py">
-        <provides>video</provides>
-    </extension>
-    <extension point="xbmc.service" library="resources/lib/service_runner.py" start="login"/>
-    <extension point="xbmc.addon.metadata">
-        <platform>all</platform>
-        <news>
-[fix] encoding issue causing streams/videos/live notifications to be inaccessible with some languages
-        </news>
-        <assets>
-            <icon>icon.png</icon>
-            <fanart>fanart.jpg</fanart>
-        </assets>
-        <source>https://github.com/MrSprigster/Twitch-on-Kodi</source>
-        <license>GPL-3.0-only</license>
-        <forum>https://forum.kodi.tv/showthread.php?tid=134538</forum>
-        <summary lang="en_GB">Twitch video plugin</summary>
-        <description lang="en_GB">Watch your favorite gaming streams!</description>
-        <summary lang="da_DK">Twitch video plugin</summary>
-        <description lang="da_DK">Se dine favorit gaming streams!</description>
-        <summary lang="de_DE">Twitch video plugin</summary>
-        <description lang="de_DE">Schaue die besten Gaming-Streams!</description>
-        <summary lang="es_ES">Twitch video plugin</summary>
-        <description lang="es_ES">¡Mira los streams de tus juegos favoritos!</description>
-        <summary lang="fr_FR">Twitch video plugin</summary>
-        <description lang="fr_FR">Regardez les streams de vos jeux favoris !</description>
-        <summary lang="nl_NL">Twitch video plugin</summary>
-        <description lang="nl_NL">Bekijk je favoriete gaming-streams!</description>
-        <summary lang="nb_NO">Tillegg for Twitch</summary>
-        <description lang="nb_NO">Se dine favorittstrømmere!</description>
-        <summary lang="pl_PL">Twitch video plugin</summary>
-        <description lang="pl_PL">Oglądaj ulubione programy TwitchTV!</description>
-        <reuselanguageinvoker>true</reuselanguageinvoker>
-    </extension>
-</addon>
-
-<addon id="repository.mpd" name="mpd" version="20.03.26" provider-name="MPD">
-	<extension point="xbmc.addon.repository" name="mpd">
-		<dir>
-			<info compressed="false">https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/addons.xml</info>
-			<checksum>https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/addons.xml.md5</checksum>
-			<datadir zip="true">https://raw.githubusercontent.com/totalrevolution/python-koding/master/zips/</datadir>
-		</dir>
-		<dir>
-            <info compressed="false">https://raw.githubusercontent.com/jenaddon/repository.jenrepo/master/zips/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/jenaddon/repository.jenrepo/master/zips/addons.xml.md5</checksum>
-            <datadir zip="true">https://raw.githubusercontent.com/jenaddon/repository.jenrepo/master/zips/</datadir>
-            <hashes>false</hashes>
-        </dir>
-
-        <dir>
-            <info compressed="false">https://raw.githubusercontent.com/Gujal00/smrzips/master/addons.xml</info>
-            <checksum>https://raw.githubusercontent.com/Gujal00/smrzips/master/addons.xml.md5</checksum>
-            <datadir zip="true">https://raw.githubusercontent.com/Gujal00/smrzips/master/zips/</datadir>
-        </dir>
-		<info compressed="false">https://raw.githubusercontent.com/PiDiaries/repository.mpd/master/zips/addons.xml</info>
-		<checksum>https://raw.githubusercontent.com/PiDiaries/repository.mpd/master/zips/addons.xml.md5</checksum>
-		<datadir zip="true">https://raw.githubusercontent.com/PiDiaries/repository.mpd/master/zips/</datadir>
-	</extension>
-	<extension point="xbmc.addon.metadata">
-		<summary lang="en">Repo for My Pi Diaries Add-ons</summary>
-		<description lang="en">Repo for My Pi Diaries Add-ons</description>
-		<genre>gaming,uk</genre>
-	</extension>
 </addon>
 </addons>
